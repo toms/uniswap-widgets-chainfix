@@ -172,7 +172,7 @@ function useWeb3ReactConnectors({ defaultChainId, provider, jsonRpcUrlMap }: Pro
       chains: [
         SupportedChainId.MAINNET,
         // include the defaultChainId if specified and not already included
-        ...((defaultChainId !== SupportedChainId.MAINNET) ? [defaultChainId] : []),
+        ...(defaultChainId && defaultChainId !== SupportedChainId.MAINNET ? [defaultChainId] : []),
       ],
       optionalChains: [...L1_CHAIN_IDS, ...L2_CHAIN_IDS],
       optionalMethods: ['eth_signTypedData', 'eth_signTypedData_v4', 'eth_sign'],
